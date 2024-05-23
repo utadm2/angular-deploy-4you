@@ -1,0 +1,6 @@
+<div class="mx-auto lg:w-1/3 p-6">
+  <app-form-movie (movieEvent)="addNewMovie($event)"></app-form-movie>
+  @for (movie of movies; track $index) {
+  <app-item-movie [movieInput]="movie"></app-item-movie>
+  }
+</div>
