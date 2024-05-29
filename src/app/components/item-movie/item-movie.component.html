@@ -1,3 +1,5 @@
+@for (movie of moviesInput; track $index) {
+
 <div
   class="relative mt-4 block overflow-hidden rounded-lg border border-gray-100 p-4 sm:p-6 lg:p-8"
 >
@@ -7,21 +9,31 @@
 
   <div class="sm:flex sm:justify-between sm:gap-4">
     <div>
+      <p class="text-sm">{{ $index }} - {{ movie.id }}</p>
       <h3 class="text-lg font-bold text-gray-900 sm:text-xl">
-        {{ movieInput.name }}
+        {{ movie.name }}
       </h3>
 
       <p class="mt-1 text-xs font-medium text-gray-600">
-        Año de lanzamiento: {{ movieInput.year }}
+        Año de lanzamiento: {{ movie.year }}
       </p>
     </div>
 
     <div class="hidden sm:block sm:shrink-0">
-      <img
+      <!-- <img
         alt=""
         src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1180&q=80"
         class="size-16 rounded-lg object-cover shadow-sm"
-      />
+      /> -->
     </div>
   </div>
+  @if(!movie.watched) {
+  <button
+    (click)="updateMovie(movie.id)"
+    class="px-4 py-2 bg-green-100 rounded hover:bg-green-500"
+  >
+    Ya la vi
+  </button>
+  }
 </div>
+}

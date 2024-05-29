@@ -1,6 +1,7 @@
-<div class="mx-auto lg:w-1/3 p-6">
+<div class="mx-auto lg:w-2/3 p-6 grid grid-cols-2 gap-6">
   <app-form-movie (movieEvent)="addNewMovie($event)"></app-form-movie>
-  @for (movie of movies; track $index) {
-  <app-item-movie [movieInput]="movie"></app-item-movie>
-  }
+  <app-item-movie
+    (watched)="setWatched($event)"
+    [moviesInput]="movies"
+  ></app-item-movie>
 </div>

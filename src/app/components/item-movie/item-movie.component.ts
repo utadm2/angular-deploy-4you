@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-item-movie',
@@ -8,5 +8,14 @@ import { Component, Input } from '@angular/core';
   styleUrl: './item-movie.component.css'
 })
 export class ItemMovieComponent {
-  @Input() movieInput: any
+  @Input() moviesInput: any[] = []
+  @Output() watched = new EventEmitter<any>();
+
+  updateMovie(id: string) {
+    console.log(id)
+    this.watched.emit({
+      id: id,
+      watched: true
+    })
+  }
 }
